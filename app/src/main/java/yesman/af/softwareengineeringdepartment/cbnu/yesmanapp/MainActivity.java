@@ -17,7 +17,7 @@ public class MainActivity extends Activity
     Button registerBtn;
     String userID;
     Date date;
-    //영빈이가 고쳤쪄요
+    //의범이가 고쳤쪄요
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
