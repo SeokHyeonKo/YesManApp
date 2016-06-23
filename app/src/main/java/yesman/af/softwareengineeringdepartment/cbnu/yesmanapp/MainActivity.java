@@ -15,36 +15,36 @@ public class MainActivity extends Activity
     EditText contentEditText;
     EditText titleEditText;
     Button registerBtn;
-    String userID;
-    Date date;
-    //의범이가 고쳤쪄요
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+                String userID;
+                Date date;
 
-        contentEditText = (EditText)findViewById(R.id.contentEditText);
-        contentEditText.setBackgroundColor(Color.CYAN);
-        titleEditText = (EditText)findViewById(R.id.titleEditText);
-        registerBtn = (Button)findViewById(R.id.registerbtn);
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.activity_main);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ServerManager a  = ServerManager.getInstance();
+                    contentEditText = (EditText)findViewById(R.id.contentEditText);
+                    contentEditText.setBackgroundColor(Color.CYAN);
+                    titleEditText = (EditText)findViewById(R.id.titleEditText);
+                    registerBtn = (Button)findViewById(R.id.registerbtn);
 
-                String userID = "user";
-                String title = titleEditText.getText().toString();
-                String content = contentEditText.getText().toString();
+                    registerBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ServerManager a  = ServerManager.getInstance();
 
-                Log.w(title,"title");
-                Log.w(content,"content");
+                            String userID = "user";
+                            String title = titleEditText.getText().toString();
+                            String content = contentEditText.getText().toString();
 
-                long now = System.currentTimeMillis();
-                Date date = new Date(now);
+                            Log.w(title,"title");
+                            Log.w(content,"content");
+
+                            long now = System.currentTimeMillis();
+                            Date date = new Date(now);
 
                 //임시
-                double x = 1111.111;
+                double x = 1111.222;
                 double y = 1111.111;
 
                 DashBoard dashBoard = new DashBoard(title,content,date,x,y);
