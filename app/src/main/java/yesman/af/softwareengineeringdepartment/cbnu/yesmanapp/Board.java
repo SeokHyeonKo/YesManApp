@@ -5,7 +5,8 @@ import java.util.Date;
 /**
  * Created by seokhyeon on 2016-06-22.
  */
-public class DashBoard {
+public class Board {
+    private int boardserialnumber;
     private double x;
     private double y;
     private String title;
@@ -18,6 +19,34 @@ public class DashBoard {
     private int ischeckaccept;
     private int ismatching;
     private Date date;
+
+
+    //등록용 생성자
+    public Board(String title, String content, Date date, double x, double y){
+        this.x = x;
+        this.y = y;
+        this.title = title;
+        this.content = content;
+        this.date = date;
+    }
+
+    //보드 리스트를 가져오기 위한 생성자
+    public Board(int boardserialnumber, double x, double y, String title, String content,
+                 int domain, String requestID, String acceptID, int category, int ischeckrequest, int ischeckaccept, int ismatching, Date date) {
+        this.boardserialnumber = boardserialnumber;
+        this.x = x;
+        this.y = y;
+        this.title = title;
+        this.content = content;
+        this.domain = domain;
+        this.requestID = requestID;
+        this.acceptID = acceptID;
+        this.category = category;
+        this.ischeckrequest = ischeckrequest;
+        this.ischeckaccept = ischeckaccept;
+        this.ismatching = ismatching;
+        this.date = date;
+    }
 
     public int getDomain() {
         return domain;
@@ -75,13 +104,7 @@ public class DashBoard {
         this.ismatching = ismatching;
     }
 
-    public DashBoard(String title, String content, Date date, double x, double y){
-        this.x = x;
-        this.y = y;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-    }
+
 
     public double getX() {
         return x;
@@ -121,5 +144,13 @@ public class DashBoard {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public int getBoardserialnumber() {
+        return boardserialnumber;
+    }
+
+    public void setBoardserialnumber(int boardserialnumber) {
+        this.boardserialnumber = boardserialnumber;
     }
 }

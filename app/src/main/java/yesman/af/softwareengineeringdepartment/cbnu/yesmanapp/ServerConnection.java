@@ -10,13 +10,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created by seokhyeon on 2016-06-22.
  */
-public class ServerConnection extends AsyncTask<String, Void, String> {
-
-    private User user;
+public class ServerConnection extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String...url) {
@@ -26,7 +25,7 @@ public class ServerConnection extends AsyncTask<String, Void, String> {
         Log.w("Dd","dd");
 
             try {
-                // 占쌍소뤄옙 占쏙옙占쏙옙占싹울옙 post占쏙옙占쏙옙占쏙옙占?json 占싼깍옙占?
+
                 URL object = new URL(url[0]);
                 HttpURLConnection con = (HttpURLConnection) object.openConnection();
                 con.setDoOutput(true);
@@ -35,23 +34,17 @@ public class ServerConnection extends AsyncTask<String, Void, String> {
                 con.setRequestProperty("X-Requested-With", "XMLHttpRequest");
                 con.setRequestMethod("POST");
 
-                JSONObject dashboardObj = new JSONObject();
-                dashboardObj.put("userid",user.getUserID());
-                dashboardObj.put("title",user.getCurrentDashBoard().getTitle());
-                dashboardObj.put("content",user.getCurrentDashBoard().getContent());
-                dashboardObj.put("date",user.getCurrentDashBoard().getDate().getTime());
-                dashboardObj.put("x",user.getCurrentDashBoard().getX());
-                dashboardObj.put("y",user.getCurrentDashBoard().getY());
+                JSONObject obj = JsonMaker.getInstance().makeJson();
 
                 OutputStreamWriter wr = new OutputStreamWriter(
                         con.getOutputStream());
-                System.out.println(dashboardObj.toString());
-                wr.write("data=" + dashboardObj.toString()); // 占쌔댐옙 占쏙옙占쏙옙 占싼뤄옙占쌔댐옙.
-                // data=value占쏙옙 post占쏙옙占쏙옙占쏙옙占?
-                // 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙
+                //System.out.println(obj.toString());
+                wr.write("data=" + obj.toString());
+
                 wr.flush();
                 wr.close();
-                // 肉뚮┛??寃곌낵 媛믪쓣 蹂대뒗 硫붿냼??
+
+
                 StringBuilder sb = new StringBuilder();
                 int HttpResult = con.getResponseCode();
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
@@ -62,7 +55,8 @@ public class ServerConnection extends AsyncTask<String, Void, String> {
                         sb.append(line + "\n");
                     }
                     br.close();
-                    System.out.println("" + sb.toString());
+                    //System.out.println("" + sb.toString());
+                    response = sb.toString();
                 } else {
                     System.out.println(con.getResponseMessage());
                 }
@@ -78,6 +72,20 @@ public class ServerConnection extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         // UI 업데이트가 구현될 부분
+
+        if(result!=null && (JsonMaker.getInstance().getSeleted()==JsonMaker.GET_REQUSET_LIST || JsonMaker.getInstance().getSeleted()==JsonMaker.GET_DONATION_LIST)){
+            User.getInstance().setBoardList(DataMakerbyJson.getDataMaker().getBoardList(result));
+            ArrayList<Board> arr = User.getInstance().getBoardList();
+            for(int i=0;i<arr.size();i++){
+                System.out.println(arr.get(i).getContent());
+                System.out.println(arr.get(i).getAcceptID());
+                System.out.println(arr.get(i).getDomain());
+                System.out.println(arr.get(i).getX());
+
+            }
+        }
+
+
     }
 
     @Override
@@ -87,7 +95,5 @@ public class ServerConnection extends AsyncTask<String, Void, String> {
 
     }
 
-    public void setUser(User user){
-        this.user = user;
-    }
+
 }

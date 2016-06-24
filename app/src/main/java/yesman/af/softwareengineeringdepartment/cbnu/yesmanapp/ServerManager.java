@@ -10,14 +10,31 @@ public class ServerManager {
     private String path;
     private String url = "http://kossi.iptime.org:2000/YesManProject";
 
-    public void registerDahsBoard(DashBoard dashBoard){
-        path = "/RegisterDashBoard.jsp";
+    public void registerBoard(){
+        path = "/registerBoard";
+        JsonMaker.getInstance().setSeleted(JsonMaker.REGISTER_BOARD);
         checkTask();
-        if(server==null) server = new ServerConnection();
-        //임시 유저
-        User user = new User("123");
-        user.setCurrentDashBoard(dashBoard);
-        server.setUser(user);
+        server.execute(url+path);
+    }
+
+    public void joinUser(){
+        path = "/joinuser";
+        JsonMaker.getInstance().setSeleted(JsonMaker.JOIN);
+        checkTask();
+        server.execute(url+path);
+    }
+
+    public void getRequest_BoardList(){
+        path = "/getRequestList";
+        JsonMaker.getInstance().setSeleted(JsonMaker.GET_REQUSET_LIST);
+        checkTask();
+        server.execute(url+path);
+    }
+
+    public void getDonation_BoardList(){
+        path = "/getDonationList";
+        JsonMaker.getInstance().setSeleted(JsonMaker.GET_DONATION_LIST);
+        checkTask();
         server.execute(url+path);
     }
 
@@ -25,8 +42,8 @@ public class ServerManager {
         if(server != null) {
             server.cancel(true);
             server = null;
-            server = new ServerConnection();
         }
+        server = new ServerConnection();
     }
 
     public static synchronized ServerManager getInstance(){

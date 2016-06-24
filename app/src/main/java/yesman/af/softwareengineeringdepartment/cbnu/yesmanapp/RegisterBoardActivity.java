@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import java.util.Date;
 
-public class MainActivity extends Activity
+public class RegisterBoardActivity extends Activity
 {
     EditText contentEditText;
     EditText titleEditText;
@@ -47,9 +47,19 @@ public class MainActivity extends Activity
                 double x = 1111.222;
                 double y = 1111.111;
 
-                DashBoard dashBoard = new DashBoard(title,content,date,x,y);
+               // Board dashBoard = new Board(title,content,date,x,y);
+                     User user = User.getInstance();
 
-                a.registerDahsBoard(dashBoard);
+                user.setUserID("sdfsdfdf");
+                user.setX(125);
+                user.setY(125);
+                Board board = new Board("ddd","sdfdf",new Date(),123.124,231.23);
+                            user.setCurrentDashBoard(board);
+
+                            a.registerBoard();
+                //a.registerDahsBoard(dashBoard);
+                            //User u = new User("1243223423",123.23,124.2,1,0,0,1);
+                            //a.getRequestList(u);
             }
         });
     }
