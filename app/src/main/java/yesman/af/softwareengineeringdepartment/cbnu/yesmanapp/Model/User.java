@@ -1,4 +1,4 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model;
 
 import java.util.ArrayList;
 
@@ -18,6 +18,19 @@ public class User {
     private int reliability;
     private ArrayList<Board> BoardList = new ArrayList<Board>();
     private Board currentBoard = null;
+    private String regID;
+
+    public String getRegID() {
+        return regID;
+    }
+
+    public void setRegID(String regID) {
+        this.regID = regID;
+    }
+
+    public void setCurrentBoard(Board currentBoard) {
+        this.currentBoard = currentBoard;
+    }
 
     public User(){
 

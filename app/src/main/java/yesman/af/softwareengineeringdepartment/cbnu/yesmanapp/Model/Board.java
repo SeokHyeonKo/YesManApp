@@ -1,4 +1,4 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model;
 
 import java.util.Date;
 

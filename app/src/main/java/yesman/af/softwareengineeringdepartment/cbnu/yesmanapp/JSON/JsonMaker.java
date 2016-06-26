@@ -1,8 +1,11 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.JSON;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model.Board;
+import yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model.User;
 
 /**
  * Created by seokhyeon on 2016-06-24.
@@ -11,7 +14,7 @@ public class JsonMaker {
 
 
     private static JsonMaker jsonmaker = null;
-    public static int JOIN = 0,GET_REQUSET_LIST = 1,GET_DONATION_LIST = 2, REGISTER_BOARD = 3;
+    public static int JOIN = 0,GET_REQUSET_LIST = 1,GET_DONATION_LIST = 2, REGISTER_BOARD = 3, CHANGE_LOCATION = 4,CHECK_MYBOARDLIST = 5;
     private JSONObject jsonobj;
     private JSONArray jsonarr;
     private int selected;
@@ -25,6 +28,10 @@ public class JsonMaker {
             tempobj = getRequsetList(user);
         }else if(selected==REGISTER_BOARD){
             tempobj = registerBoard(user);
+        }else if(selected==CHANGE_LOCATION){
+            tempobj = changeLocationJSON(user);
+        }else if(selected==CHECK_MYBOARDLIST){
+            tempobj = checkMyBoardListJSON(user);
         }
 
 
@@ -41,6 +48,7 @@ public class JsonMaker {
             jsonobj.put("domain4", user.getDomain4());
             jsonobj.put("x", user.getX());
             jsonobj.put("y", user.getY());
+            jsonobj.put("regID",user.getRegID());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -82,6 +90,30 @@ public class JsonMaker {
         }
         return jsonobj;
 
+    }
+
+
+    //위치변경시 반드시 먼저 USER 객체의 userx usery 를 세팅해준후 보내야함
+    public JSONObject changeLocationJSON(User user){
+        jsonobj = new JSONObject();
+        try {
+            jsonobj.put("userID",user.getUserID());
+            jsonobj.put("x", user.getX());
+            jsonobj.put("y", user.getY());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonobj;
+    }
+
+    public JSONObject checkMyBoardListJSON(User user){
+        jsonobj = new JSONObject();
+        try {
+            jsonobj.put("userID",user.getUserID());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonobj;
     }
 
 

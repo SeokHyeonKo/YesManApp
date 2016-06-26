@@ -1,4 +1,6 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.ServerIDO;
+
+import yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.JSON.JsonMaker;
 
 /**
  * Created by seokhyeon on 2016-06-22.
@@ -9,6 +11,21 @@ public class ServerManager {
     private ServerConnection server;
     private String path;
     private String url = "http://kossi.iptime.org:2000/YesManProject";
+
+
+    public void checkMyBoardList(){
+        path = "/getMyBoardList";
+        JsonMaker.getInstance().setSeleted(JsonMaker.CHECK_MYBOARDLIST);
+        checkTask();
+        server.execute(url+path);
+    }
+
+    public void changeMyLocation(){
+        path = "/changelocation";
+        JsonMaker.getInstance().setSeleted(JsonMaker.CHANGE_LOCATION);
+        checkTask();
+        server.execute(url+path);
+    }
 
     public void registerBoard(){
         path = "/registerBoard";

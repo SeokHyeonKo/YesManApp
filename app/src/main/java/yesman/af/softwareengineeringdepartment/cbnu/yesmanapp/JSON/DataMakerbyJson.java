@@ -1,4 +1,4 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.JSON;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model.Board;
 
 /**
  * Created by seokhyeon on 2016-06-25.

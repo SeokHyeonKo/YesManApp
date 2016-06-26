@@ -1,4 +1,4 @@
-package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp;
+package yesman.af.softwareengineeringdepartment.cbnu.yesmanapp.Model;
 
 /**
  * Created by seokhyeon on 2016-06-24.
