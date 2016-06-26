@@ -42,10 +42,10 @@ public class JsonMaker {
         jsonobj = new JSONObject();
         try {
             jsonobj.put("UserId", user.getUserID());
-            jsonobj.put("domain1", user.getDomain1());
-            jsonobj.put("domain2", user.getDomain2());
-            jsonobj.put("domain3", user.getDomain3());
-            jsonobj.put("domain4", user.getDomain4());
+            //jsonobj.put("domain1", user.getDomain1());
+            //jsonobj.put("domain2", user.getDomain2());
+           // jsonobj.put("domain3", user.getDomain3());
+            //jsonobj.put("domain4", user.getDomain4());
             jsonobj.put("x", user.getX());
             jsonobj.put("y", user.getY());
             jsonobj.put("regID",user.getRegID());
