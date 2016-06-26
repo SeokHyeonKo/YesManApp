@@ -10,10 +10,80 @@ public class User {
     private String userID;
     private double x;
     private double y;
-    private int domain1;
-    private int domain2;
-    private int domain3;
-    private int domain4;
+    private int domain_dsign;
+    private int domain_translate;
+    private int domain_document;
+    private int domain_marketing;
+    private int domain_computer;
+    private int domain_music;
+    private int domain_service;
+
+    public int getDomain_dsign() {
+        return domain_dsign;
+    }
+
+    public void setDomain_dsign(int domain_sign) {
+        this.domain_dsign = domain_sign;
+    }
+
+    public int getDomain_translate() {
+        return domain_translate;
+    }
+
+    public void setDomain_translate(int domain_translate) {
+        this.domain_translate = domain_translate;
+    }
+
+    public int getDomain_document() {
+        return domain_document;
+    }
+
+    public void setDomain_document(int domain_document) {
+        this.domain_document = domain_document;
+    }
+
+    public int getDomain_marketing() {
+        return domain_marketing;
+    }
+
+    public void setDomain_marketing(int domain_marketing) {
+        this.domain_marketing = domain_marketing;
+    }
+
+    public int getDomain_computer() {
+        return domain_computer;
+    }
+
+    public void setDomain_computer(int domain_computer) {
+        this.domain_computer = domain_computer;
+    }
+
+    public int getDomain_music() {
+        return domain_music;
+    }
+
+    public void setDomain_music(int domain_music) {
+        this.domain_music = domain_music;
+    }
+
+    public int getDomain_service() {
+        return domain_service;
+    }
+
+    public void setDomain_service(int domain_service) {
+        this.domain_service = domain_service;
+    }
+
+    public int getDomain_play() {
+        return domain_play;
+    }
+
+    public void setDomain_play(int domain_play) {
+        this.domain_play = domain_play;
+    }
+
+    private int domain_play;
+
     private int point;
     private int reliability;
     private ArrayList<Board> BoardList = new ArrayList<Board>();
@@ -56,37 +126,7 @@ public class User {
         this.y = y;
     }
 
-    public int getDomain1() {
-        return domain1;
-    }
 
-    public void setDomain1(int domain1) {
-        this.domain1 = domain1;
-    }
-
-    public int getDomain2() {
-        return domain2;
-    }
-
-    public void setDomain2(int domain2) {
-        this.domain2 = domain2;
-    }
-
-    public int getDomain3() {
-        return domain3;
-    }
-
-    public void setDomain3(int domain3) {
-        this.domain3 = domain3;
-    }
-
-    public int getDomain4() {
-        return domain4;
-    }
-
-    public void setDomain4(int domain4) {
-        this.domain4 = domain4;
-    }
 
     public int getPoint() {
         return point;
