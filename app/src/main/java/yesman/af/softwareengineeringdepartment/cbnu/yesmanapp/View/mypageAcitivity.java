@@ -27,7 +27,7 @@ public class mypageAcitivity extends Activity {
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext()); // SDK 초기화 (setContentView 보다 먼저 실행
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mypage);
 
         profile = Profile.getCurrentProfile();
         SharedPreferences pref = getSharedPreferences("PrefName", MODE_PRIVATE);
