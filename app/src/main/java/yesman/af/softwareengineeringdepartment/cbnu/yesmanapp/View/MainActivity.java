@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
                 //.add(R.string.titleB, RecyclerFragment.class)
                 .add(R.string.titleA, BoardFragment.class)
                 .add(R.string.titleB, BoardFragment.class)
-                .add(R.string.titleC, WriteFragment.class)
-                .add(R.string.titleD, MyPageFragment.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);

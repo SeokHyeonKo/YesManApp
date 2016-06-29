@@ -3,7 +3,9 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
     <android.support.v7.widget.CardView
         android:id="@+id/cardview"
         card_view:cardCornerRadius="3dp"
@@ -11,24 +13,38 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="ddd"/>
+            android:layout_weight="0.03">
 
-            <TextView
-                android:id="@+id/content"
+            <ImageView
+                android:scaleType="matrix"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/image"
+                android:src="@drawable/bestseller_circle"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="ddd"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/image">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="306dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ddd"/>
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="306dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="ddd"/>
+            </LinearLayout>
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
